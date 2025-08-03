@@ -1,84 +1,54 @@
-# Credit Default Prediction With Machine Learning
+# Credit Default Prediction with Machine Learning  
 
-<p align="center">
-  <img src="https://i1.wp.com/blog.bankbazaar.com/wp-content/uploads/2016/03/Surviving-a-Credit-Card-Default.png?resize=665%2C266&ssl=1" alt="Surviving a credit default" width="600" height="400">
-</p>
+<center>
+  <img src="https://i1.wp.com/blog.bankbazaar.com/wp-content/uploads/2016/03/Surviving-a-Credit-Card-Default.png?resize=665%2C266&ssl=1" alt="Credit Default Risk" width="600">
+</center>
 
-## Project Overview
+## Problem Statement  
+Banks are pivotal in market economies, determining who qualifies for loans and under what terms. Credit scoring models predict the probability of default, enabling lenders to make informed decisions. This project aims to:  
+- Predict financial distress likelihood within the next two years.  
+- Empower borrowers with actionable insights to improve creditworthiness.  
+- Optimize bank decision-making by minimizing costly false negatives (missed defaults).  
 
-Banks play a pivotal role in market economies by determining who receives financing and under what conditions. Credit scoring algorithms estimate the likelihood of default, guiding banks' lending decisions. This project aims to enhance credit scoring by developing a machine learning model to predict the probability of a borrower experiencing financial distress within the next two years. The model is designed to empower borrowers with actionable insights to improve their creditworthiness.
+**Key Focus**: Model interpretability and high recall to prioritize risk reduction for lenders.  
 
-## Problem Statement
+---
 
-The objective is to build an interpretable machine learning model that predicts whether a borrower will default on a loan within two years. This is a **binary classification problem** where the model prioritizes **recall** over precision to minimize false negatives, as these are more costly for banks. The model should provide clear, actionable insights for borrowers to enhance their financial decisions.
+## Key Observations  
+- **Binary Classification**: Predict `default` (1) or `no default` (0).  
+- **Business Impact**: False negatives (missing a default) cost banks more than false positives.  
+- **Evaluation Metric**: **AUC-ROC** (Area Under the ROC Curve), chosen for its robustness in imbalanced classification.  
 
-### Key Goals
-- Develop a model with high **explainability** to provide actionable insights.
-- Optimize for **recall** to reduce false negatives, minimizing financial risk for banks.
-- Achieve a high **Area Under the ROC Curve (AUC)**, the evaluation metric for this Kaggle competition.
+---
 
-## Evaluation Metric: AUC
+## Evaluation Metric: AUC-ROC Explained  
 
-Submissions are evaluated using the **Area Under the ROC Curve (AUC)**, which measures the model's performance across all classification thresholds.
+### What is AUC-ROC?  
+AUC (Area Under the Curve) measures the model's ability to distinguish between classes across all thresholds. Higher AUC = better performance.  
 
-### What is AUC?
-AUC represents the entire two-dimensional area under the **Receiver Operating Characteristic (ROC) curve**. It quantifies the probability that the model ranks a random positive example (default) higher than a random negative example (non-default).
+#### ROC Curve Components:  
+| Metric               | Formula                          | Interpretation                                                                 |  
+|----------------------|----------------------------------|--------------------------------------------------------------------------------|  
+| **True Positive Rate (Recall)** | `TPR = TP / (TP + FN)`    | "How many true defaults did we correctly predict?"                             |  
+| **False Positive Rate**        | `FPR = FP / (FP + TN)`    | "How many non-defaults were incorrectly flagged as risky?"                    |  
 
-### What is an ROC Curve?
-An ROC curve plots the **True Positive Rate (TPR)** against the **False Positive Rate (FPR)** at various classification thresholds.
+- **AUC = 1**: Perfect classifier.  
+- **AUC = 0.5**: Random guessing.  
 
-- **True Positive Rate (TPR)** (also called **recall** or **sensitivity**):
-  \[
-  \text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}
-  \]
-  - **TP**: Number of True Positives (correctly predicted defaults)
-  - **FN**: Number of False Negatives (missed defaults)
+---
 
-- **False Positive Rate (FPR)**:
-  \[
-  \text{FPR} = \frac{\text{FP}}{\text{FP} + \text{TN}}
-  \]
-  - **FP**: Number of False Positives (incorrectly predicted defaults)
-  - **TN**: Number of True Negatives (correctly predicted non-defaults)
+## Project Workflow  
+1. **Data Preprocessing**: Handle missing values, outliers, and feature scaling.  
+2. **Exploratory Analysis (EDA)**: Visualize class imbalance, correlations, and feature distributions.  
+3. **Model Selection**: Train and compare Logistic Regression, Random Forest, and XGBoost.  
+4. **Interpretability**: Use SHAP/LIME to explain predictions to borrowers.  
+5. **Threshold Tuning**: Optimize for recall to reduce false negatives.  
 
-### Visualizing the ROC Curve and AUC
-The ROC curve illustrates the trade-off between TPR and FPR as the classification threshold varies. A higher AUC indicates better model performance.
+---
 
-<p align="center">
-  <img src="https://developers.google.com/static/machine-learning/crash-course/images/ROCCurve.svg" alt="ROC Curve" width="500" height="400">
-</p>
-<p align="center">
-  <em>ROC Curve: TPR vs. FPR at different thresholds</em>
-</p>
-
-<p align="center">
-  <img src="https://developers.google.com/static/machine-learning/crash-course/images/AUC.svg" alt="AUC" width="500" height="400">
-</p>
-<p align="center">
-  <em>AUC: Area under the ROC curve, measuring overall model performance</em>
-</p>
-
-### Confusion Matrix
-The following confusion matrix clarifies the concepts of TP, TN, FP, and FN:
-
-<p align="center">
-  <img src="https://i.imgur.com/nHHmhxt.png" alt="Confusion Matrix">
-</p>
-
-## Project Features
-- **Model Explainability**: Provides interpretable outputs to guide borrowers on improving creditworthiness.
-- **High Recall Focus**: Prioritizes minimizing false negatives to reduce financial risk for banks.
-- **Robust Evaluation**: Optimized for AUC, ensuring strong performance across classification thresholds.
-- **Real-World Impact**: Empowers borrowers with insights for better financial decisions and supports banks in making informed lending choices.
-
-## Getting Started
-
-### Prerequisites
-- Python 3.x
-- Libraries: `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`, etc.
-- Kaggle account to access the competition dataset
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/credit-default-prediction.git
+## How to Use This Repository  
+```bash
+git clone https://github.com/yourusername/credit-default-prediction.git
+cd credit-default-prediction
+pip install -r requirements.txt  # numpy, pandas, scikit-learn, xgboost, matplotlib
+jupyter notebook  # Run the analysis notebook
