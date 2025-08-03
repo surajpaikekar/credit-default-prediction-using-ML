@@ -50,7 +50,7 @@ AUC (Area Under the Curve) measures the model's ability to distinguish between c
 
 **Confusion Matrix** (Optimized for Recall):
 <p align="center">
-  <img src="https://i.imgur.com/nHHmhxt.png" alt="Confusion Matrix" width="400">
+  <img src="https://i.imgur.com/nHHmhxt.png" alt="Confusion Matrix" width="700">
 </p>
 
 ---
