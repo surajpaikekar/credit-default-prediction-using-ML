@@ -45,6 +45,32 @@ AUC (Area Under the Curve) measures the model's ability to distinguish between c
 
 ---
 
+## 📈 Model Performance Results
+
+### Comparative Analysis of Models
+| Model | ROCAUC | Accuracy | Precision | Recall | F1_score | Private Score | Public Score |
+|-------|--------|----------|-----------|--------|----------|---------------|--------------|
+| **LGBM Final Model** | **86.3247** | 79.7610 | 21.4420 | **76.3010** | 33.4760 | **0.8667** | 0.8605 |
+| XGBoost Final Model | 86.4370 | 80.3600 | 21.9460 | 75.9920 | 34.0570 | 0.8666 | 0.8596 |
+| LogisticRegression | 85.0554 | 93.5700 | 55.7540 | 17.7230 | 26.8960 | 0.8523 | 0.8460 |
+| GaussianNB | 84.7506 | 90.3590 | 33.8930 | 46.7800 | 39.3070 | 0.8491 | 0.8491 |
+| KNeighborsClassifier | 82.7503 | 93.5390 | 56.2250 | 14.4260 | 22.9600 | 0.8369 | 0.8254 |
+| SGDClassifier | 84.2914 | 93.4190 | 51.7290 | 20.8140 | 29.6840 | 0.8523 | 0.8460 |
+| RandomForestClassifier | 83.8682 | 93.5120 | 54.0790 | 18.4440 | 27.5070 | 0.8431 | 0.8354 |
+
+
+**Key Findings**:
+- The hyperparameter-tuned LGBM and XGBoost models achieved the best AUC-ROC scores
+- Both models show significantly higher recall (76.30% and 75.99% respectively) compared to other models
+- LGBM model achieved a competition private score of 0.8667 (top 14% in Kaggle competition)
+
+**Best Model**: LightGBM (LGBM) with:
+- Highest competition private score (**0.8667**)
+- Top 14% ranking in Kaggle competition (132/924)
+- Best balance of recall (**76.30%**) and AUC-ROC (**86.32%**)
+- Most suitable for business needs (minimizing false negatives)
+
+
 ## 📈 Sample Results
 **Best Model**: XGBoost (AUC = 0.89)
 
@@ -54,6 +80,23 @@ AUC (Area Under the Curve) measures the model's ability to distinguish between c
 </p>
 
 ---
+
+## 🎯 Conclusion
+The project successfully developed a credit default prediction model through:
+1. Comprehensive data analysis and preprocessing
+2. Extensive evaluation of multiple machine learning models
+3. Rigorous hyperparameter tuning of XGBoost and LightGBM models
+
+The final LGBM model with optimized hyperparameters achieved:
+- **AUC-ROC of 0.8667**
+- **Top 14% performance** in Kaggle competition (132/924 ranking)
+- **High recall of 76.30%**, crucial for minimizing false negatives
+
+**Limitations and Future Work**:
+- Model performance depends on available dataset features
+- Real-world credit factors may change more dynamically than captured in static data
+- Potential for improvement with additional research and computational resources
+- Exploration of ensemble methods and neural networks could yield further improvements
 
 📚 References
 - [Google ML Crash Course: ROC & AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)
