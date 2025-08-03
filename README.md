@@ -49,7 +49,7 @@ AUC (Area Under the Curve) measures the model's ability to distinguish between c
 
 **Confusion Matrix** (Optimized for Recall):
 <p align="center">
-  <img src="https://i.imgur.com/nHHmhxt.png" alt="Confusion Matrix" width="300">
+  <img src="https://i.imgur.com/nHHmhxt.png" alt="Confusion Matrix" width="400">
 </p>
 
 ---
@@ -60,3 +60,15 @@ git clone https://github.com/SurajPaikekar/credit-default-prediction.git
 cd credit-default-prediction
 pip install -r requirements.txt # numpy, pandas, scikit-learn, xgboost, matplotlib
 jupyter notebook # Run the analysis notebook
+
+
+---
+
+## References
+- [Google ML Crash Course: ROC & AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)
+- [Kaggle Competition: GiveMeSomeCredit](https://www.kaggle.com/competitions/GiveMeSomeCredit)
+
+---
+
+## Contributors
+- **Suraj Paikekar** | [LinkedIn](https://www.linkedin.com/in/surajpaikekar/)
